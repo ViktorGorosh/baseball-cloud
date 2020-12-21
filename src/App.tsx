@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import {Header} from "./views/components/Header";
 import {Footer} from "./views/components/Footer";
+import {Auth} from "./views/screens/Auth"
 import './App.css';
 
 function App() {
@@ -28,10 +29,6 @@ function App() {
           </div>
       </Router>
   );
-}
-
-function Auth() {
-    return <h2>Auth</h2>;
 }
 
 function About() {
