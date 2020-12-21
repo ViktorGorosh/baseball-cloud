@@ -1,5 +1,5 @@
 import reducer from "./reducers";
 
-export { login } from "./actions"
+export { login, signIn } from "./actions"
 
 export default reducer;
