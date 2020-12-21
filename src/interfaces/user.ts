@@ -14,3 +14,31 @@ export interface LoginPayload {
 	password: UserExtended['password'];
 }
 
+export interface RegisterPayload {
+	name: User['name'];
+	email: UserExtended['email'];
+	password: UserExtended['password'];
+}
+
+export interface LoginSuccessPayload {
+	name: User['name'];
+	id: User['id'];
+}
+
+export interface RegisterResponseData {
+	columns: [];
+	email: UserExtended['email'];
+	id: User['id'];
+	name: User['name'];
+	password: UserExtended['password'];
+	token: string;
+	message?: string;
+}
+
+export interface LoginResponseData {
+	email: UserExtended['email'];
+	id: User['id'];
+	name: User['name'];
+	token: string;
+	message?: string;
+}

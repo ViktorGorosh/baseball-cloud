@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 import {
     BrowserRouter as Router,
     Switch,
@@ -8,6 +9,8 @@ import {Header} from "./views/components/Header";
 import {Footer} from "./views/components/Footer";
 import {Auth} from "./views/screens/Auth"
 import './App.css';
+
+axios.defaults.baseURL = 'https://baseballcloud-front.herokuapp.com';
 
 function App() {
   return (
