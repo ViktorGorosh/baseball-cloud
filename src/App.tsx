@@ -8,26 +8,28 @@ import {
 import {Header} from "./views/components/Header";
 import {Footer} from "./views/components/Footer";
 import {Auth} from "./views/screens/Auth"
-import './App.css';
+import styles from './App.module.scss';
 
-axios.defaults.baseURL = 'https://baseballcloud-front.herokuapp.com';
+axios.defaults.baseURL = 'https://baseballcloud-back.herokuapp.com';
 
 function App() {
   return (
       <Router>
-          <div>
+          <div className={styles.main}>
               <Header />
-              <Switch>
-                  <Route path="/login">
-                      <Auth />
-                  </Route>
-                  <Route path="/about">
-                      <About />
-                  </Route>
-                  <Route path="/users">
-                      <Users />
-                  </Route>
-              </Switch>
+              <div className={styles.mainContent}>
+                  <Switch>
+                      <Route path="/login">
+                          <Auth />
+                      </Route>
+                      <Route path="/about">
+                          <About />
+                      </Route>
+                      <Route path="/users">
+                          <Users />
+                      </Route>
+                  </Switch>
+              </div>
               <Footer />
           </div>
       </Router>

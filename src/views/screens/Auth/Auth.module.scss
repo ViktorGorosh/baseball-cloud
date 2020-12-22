@@ -1,0 +1,110 @@
+.loginView {
+	background-image: url("../../../assets/img/stadium.png");
+	background-position: top center;
+	background-size: cover;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+	padding: 16px;
+}
+.formContainer {
+	background: hsla(0,0%,100%,.8);
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(0,0,0,.4);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(10px);
+	width: 100%;
+	max-width: 450px;
+}
+.header {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 48px;
+}
+.title {
+	font-size: 24px;
+	line-height: 1.25;
+	font-weight: 400;
+	text-align: center;
+	color: #667784;
+	margin-bottom: 8px;
+}
+.subtitle {
+	line-height: 1.25;
+	font-weight: 400;
+	text-align: center;
+	color: #667784;
+	font-size: 16px;
+}
+.input {
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 4px;
+	background-color: #eff1f3;
+	padding: 6px 12px 10px 37px;
+	font-size: 16px;
+	line-height: 1.13;
+	font-weight: 400;
+	color: #667784;
+	border: 1px solid transparent;
+	&:active, &:focus {
+		outline: none;
+		background-color: #fff;
+		border: solid 1px #48bbff;
+	}
+}
+.inputContainer {
+	position: relative;
+	margin-bottom: 15px;
+}
+.icon {
+	position: absolute;
+	color: rgb(102, 119, 132);
+	top: 16px;
+	left: 14px;
+}
+.submit {
+	display: block;
+	padding: 15px 19px 17px 18px;
+	border-radius: 4px;
+	font-size: 16px;
+	line-height: 19px;
+	font-weight: 400;
+	color: #ffffff;
+	border: solid 1px transparent;
+	box-shadow: 0 0 4px 0 rgba(72, 187, 255, 0);
+	background-color: #48bbff;
+	width: 100%;
+	flex: 1 1 auto;
+	margin-bottom: 15px;
+	&:hover {
+		box-shadow: 0 0 4px 0 rgba(72, 187, 255, 0.8);
+	}
+	&:active, &:focus {
+		box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+		outline: none;
+	}
+}
+.forgottenPassword {
+	display: flex;
+	justify-content: flex-end;
+}
+.footerText {
+	font-size: 16px;
+	color: #667784;
+}
+.changeScreen {
+	text-decoration: underline;
+	padding-left: 3px;
+	color: #48bbff;
+	font-size: 16px;
+	line-height: 1.13;
+	font-weight: 400;
+	cursor: pointer;
+}
