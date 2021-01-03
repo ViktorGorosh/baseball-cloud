@@ -1,13 +1,14 @@
 import React, {useCallback} from "react";
 import {useDispatch} from "react-redux";
 import {Field, Form} from 'react-final-form'
+import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import {signIn} from "state/ducks/user";
 import {LoginPayload} from "interfaces/user";
-import styles from './Auth.module.scss'
+import styles from 'assets/styles/Auth.module.scss'
 
-const Auth = () => {
+const Login = () => {
 	const dispatch = useDispatch()
 
 	const onSignIn = useCallback((signInInfo: LoginPayload) => {
@@ -57,9 +58,10 @@ const Auth = () => {
 								<a href="#">Forgotten password?</a>
 							</div>
 							<div className="d-flex justify-content-center">
-								<div className={styles.footerText}>Don’t have an account?
+								<div className={styles.footerText}>
+									Don’t have an account?
 								</div>
-								<a className={styles.changeScreen} href="#">Sign Up</a>
+								<Link to='/registration' className={styles.changeScreen}>Sign Up</Link>
 							</div>
 						</form>
 					)}
@@ -69,4 +71,4 @@ const Auth = () => {
 	)
 }
 
-export default Auth
+export default Login
