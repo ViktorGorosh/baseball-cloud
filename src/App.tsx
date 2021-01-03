@@ -5,10 +5,10 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import {Header} from "./views/components/Header";
-import {Footer} from "./views/components/Footer";
-import {Login} from "./views/screens/Login"
-import {Registration} from "./views/screens/Registration";
+import {Header} from "views/components/Header";
+import {Footer} from "views/components/Footer";
+import {Login} from "views/screens/Login"
+import {Registration} from "views/screens/Registration";
 import styles from './App.module.scss';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
