@@ -1,32 +1,56 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useState} from "react";
 import {useDispatch} from "react-redux";
 import {Field, Form} from 'react-final-form'
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faLock, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 import {signIn} from "state/ducks/user";
-import {LoginPayload} from "interfaces/user";
+import {RegisterPayload} from "interfaces/user";
 import styles from 'assets/styles/Auth.module.scss'
 
 const Registration = () => {
+
+	const [role, setRole] = useState<'player' | 'scout'>('player')
+
 	const dispatch = useDispatch()
 
-	const onSignIn = useCallback((signInInfo: LoginPayload) => {
-		dispatch(signIn(signInInfo))
+	const onSignIn = useCallback((signUpInfo: RegisterPayload) => {
+		console.log(signUpInfo)
 	}, [dispatch])
 
 	return (
 		<div className={styles.loginView}>
 			<div className={styles.formContainer}>
-				<div className={styles.header}>
-					<div className={styles.title}>Welcome to BaseballCloud!</div>
-					<div className={styles.subtitle}>Sign into your account here:</div>
-				</div>
 				<Form
 					onSubmit={onSignIn}
 				>
 					{({ handleSubmit }) => (
 						<form onSubmit={handleSubmit}>
+							<div className={styles.roleContainer}>
+								<button
+									className={`${styles.roleBtn} ${role === 'player' ? styles.active : ''}`}
+									type="button"
+									onClick={() => setRole('player')}
+								>
+									{role === 'player'
+										? <FontAwesomeIcon className={styles.roleIcon} icon={faCheckSquare} />
+										: null
+									}
+
+									Sign Up as Player
+								</button>
+								<button
+									className={`${styles.roleBtn} ${role === 'scout' ? styles.active : ''}`}
+									type="button"
+									onClick={() => setRole('scout')}
+								>
+									{role === 'scout'
+										? <FontAwesomeIcon className={styles.roleIcon} icon={faCheckSquare} />
+										: null
+									}
+									Sign Up as Scout
+								</button>
+							</div>
 							<div className={styles.inputContainer}>
 								<Field name="email">
 									{({input}) => (
