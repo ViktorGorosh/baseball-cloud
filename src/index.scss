@@ -37,6 +37,10 @@ a {
   }
 }
 
+p {
+  font-size: 1.4rem;
+}
+
 #root {
   height: 100vh;
   background-color: #cbcccd;
@@ -60,4 +64,10 @@ footer {
   padding: 16px;
   height: 40px;
   font-size: 1.4rem;
+}
+.registrationNote {
+  background: #48bbff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
 }

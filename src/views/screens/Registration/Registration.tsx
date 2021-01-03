@@ -5,12 +5,25 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 import {signIn} from "state/ducks/user";
-import {RegisterPayload} from "interfaces/user";
+import {RegisterPayload, Role, RoleNote} from "interfaces/user";
 import styles from 'assets/styles/Auth.module.scss'
+
+const notes: RoleNote[] = [
+	{
+		role: 'player',
+		title: 'Players',
+		message: 'Players have their own profile within the system and plan on having data collected.'
+	},
+	{
+		role: 'scout',
+		title: 'Scouts',
+		message: 'Coaches and scouts can view players in the system but do not have their own profile.'
+	}
+]
 
 const Registration = () => {
 
-	const [role, setRole] = useState<'player' | 'scout'>('player')
+	const [role, setRole] = useState<Role>('player')
 
 	const dispatch = useDispatch()
 
@@ -50,6 +63,14 @@ const Registration = () => {
 									}
 									Sign Up as Scout
 								</button>
+							</div>
+							<div className="registrationNote">
+								<div className={styles.registrationNoteHeader}>
+									{notes.find(note => note.role === role)!.title}
+								</div>
+								<p className={styles.registrationNoteParagraph}>
+									{notes.find(note => note.role === role)!.message}
+								</p>
 							</div>
 							<div className={styles.inputContainer}>
 								<Field name="email">

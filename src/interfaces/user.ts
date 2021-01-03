@@ -61,3 +61,11 @@ export interface LoginResponseData {
 	token: string;
 	message?: string;
 }
+
+export type Role = 'player' | 'scout'
+
+export interface RoleNote {
+	role: Role,
+	title: string,
+	message: string
+}
