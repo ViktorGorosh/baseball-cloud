@@ -11,7 +11,7 @@ import {Login} from "./views/screens/Login"
 import {Registration} from "./views/screens/Registration";
 import styles from './App.module.scss';
 
-axios.defaults.baseURL = 'https://baseballcloud-back.herokuapp.com';
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 function App() {
   return (
