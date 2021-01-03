@@ -76,15 +76,17 @@ const Registration = () => {
 							<AuthInput name={'email'} type={'email'} placeholder={'Email'} icon={faUser} />
 							<AuthInput name={'password'} type={'password'} placeholder={'Password'} icon={faLock} />
 							<AuthInput name={'confirm'} type={'password'} placeholder={'Confirm password'} icon={faCheck} />
-							<button className={styles.submit} type='submit'>Sign In</button>
-							<div className="d-flex justify-content-end mb-4">
-								<a href="#">Forgotten password?</a>
+							<div className={styles.agreement}>
+								By clicking Sign Up, you agree to our&nbsp;
+								<a href="#">Terms of Service</a>&nbsp;and
+								<a href="#"> Privacy Policy</a>.
 							</div>
+							<button className={styles.submit} type='submit'>Sign Up</button>
 							<div className="d-flex justify-content-center">
 								<div className={styles.footerText}>
-									Don’t have an account?
+									Already registered?
 								</div>
-								<Link to='/home' className={styles.changeScreen}>Sign Up</Link>
+								<Link to='/login' className={styles.changeScreen}>Sign In</Link>
 							</div>
 						</form>
 					)}
