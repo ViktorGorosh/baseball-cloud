@@ -1,9 +1,9 @@
 import React, {useCallback} from "react";
 import {useDispatch} from "react-redux";
-import {Field, Form} from 'react-final-form'
+import {Form} from 'react-final-form'
 import {Link} from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
+import {AuthInput} from "views/components/AuthInput";
 import {signIn} from "state/ducks/user";
 import {LoginPayload} from "interfaces/user";
 import styles from 'assets/styles/Auth.module.scss'
@@ -27,32 +27,8 @@ const Login = () => {
 				>
 					{({ handleSubmit }) => (
 						<form onSubmit={handleSubmit}>
-							<div className={styles.inputContainer}>
-								<Field name="email">
-									{({input}) => (
-										<input
-											type="email"
-											placeholder="Email"
-											className={styles.input}
-											{...input}
-										/>
-									)}
-								</Field>
-								<FontAwesomeIcon className={styles.icon} icon={faUser} />
-							</div>
-							<div className={styles.inputContainer}>
-								<Field name="password">
-									{({input}) => (
-										<input
-											type="password"
-											placeholder="Password"
-											className={styles.input}
-											{...input}
-										/>
-									)}
-								</Field>
-								<FontAwesomeIcon className={styles.icon} icon={faLock} />
-							</div>
+							<AuthInput name={'email'} type={'email'} placeholder={'Email'} icon={faUser} />
+							<AuthInput name={'password'} type={'password'} placeholder={'Password'} icon={faLock} />
 							<button className={styles.submit} type='submit'>Sign In</button>
 							<div className="d-flex justify-content-end mb-4">
 								<a href="#">Forgotten password?</a>
