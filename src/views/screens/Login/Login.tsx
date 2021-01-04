@@ -1,12 +1,12 @@
 import React, {useCallback} from "react";
 import {useDispatch} from "react-redux";
-import {Form} from 'react-final-form'
+import {Form} from 'react-final-form';
 import {Link} from "react-router-dom";
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import {AuthInput} from "views/components/AuthInput";
 import {signIn} from "state/ducks/user";
 import {LoginPayload} from "interfaces/user";
-import styles from 'assets/styles/Auth.module.scss'
+import styles from 'assets/styles/Auth.module.scss';
 
 const Login = () => {
 	const dispatch = useDispatch()

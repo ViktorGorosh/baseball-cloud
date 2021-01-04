@@ -41,29 +41,9 @@ export interface LoginPayload {
 	password: UserExtended['password'];
 }
 
-export interface LoginResponseData {
-	// email: User['email'];
-	// id: User['id'];
-	// name: User['u_name'];
-	// token: string;
-	// message?: string;
-}
-
 export interface RegisterPayload {
 	email: User['email'];
 	password: UserExtended['password'];
 	password_confirmation: UserExtended['password'];
 	role: Role
 }
-
-export interface RegisterResponseData {
-	columns: [];
-	email: User['email'];
-	id: User['id'];
-	name: User['u_name'];
-	password: UserExtended['password'];
-	token: string;
-	message?: string;
-}
-
-

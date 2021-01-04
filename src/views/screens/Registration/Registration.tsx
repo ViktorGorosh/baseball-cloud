@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faCheckSquare, faCheck } from '@fortawesome/free-solid-svg-icons'
 import {AuthInput} from "views/components/AuthInput";
-import {signIn} from "state/ducks/user";
+import {signUp} from "state/ducks/user";
 import {RegisterPayload, Role, RoleNote} from "interfaces/user";
 import styles from 'assets/styles/Auth.module.scss'
 
@@ -28,15 +28,15 @@ const Registration = () => {
 
 	const dispatch = useDispatch()
 
-	const onSignIn = useCallback((signUpInfo: RegisterPayload) => {
-		// dispatch(signUp({...signUpInfo, role}))
-	}, [dispatch])
+	const onSignUp = useCallback((signUpInfo: RegisterPayload) => {
+		dispatch(signUp({...signUpInfo, role}))
+	}, [dispatch, role])
 
 	return (
 		<div className={styles.loginView}>
 			<div className={styles.formContainer}>
 				<Form
-					onSubmit={onSignIn}
+					onSubmit={onSignUp}
 				>
 					{({ handleSubmit }) => (
 						<form onSubmit={handleSubmit}>
