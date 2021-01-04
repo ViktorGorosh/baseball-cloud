@@ -1,5 +1,2 @@
-export interface LoginAction {
-	type: string,
-	payload: string
-}
-export const SIGN_IN = 'user/login';
+export const SIGN_IN = 'user/sign-in';
+export const SIGN_UP = 'user/sign-up';

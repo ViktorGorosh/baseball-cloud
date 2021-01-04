@@ -29,7 +29,7 @@ const Registration = () => {
 	const dispatch = useDispatch()
 
 	const onSignIn = useCallback((signUpInfo: RegisterPayload) => {
-		console.log(signUpInfo)
+		// dispatch(signUp({...signUpInfo, role}))
 	}, [dispatch])
 
 	return (
@@ -75,7 +75,7 @@ const Registration = () => {
 							</div>
 							<AuthInput name={'email'} type={'email'} placeholder={'Email'} icon={faUser} />
 							<AuthInput name={'password'} type={'password'} placeholder={'Password'} icon={faLock} />
-							<AuthInput name={'confirm'} type={'password'} placeholder={'Confirm password'} icon={faCheck} />
+							<AuthInput name={'password_confirmation'} type={'password'} placeholder={'Confirm password'} icon={faCheck} />
 							<div className={styles.agreement}>
 								By clicking Sign Up, you agree to our&nbsp;
 								<a href="#">Terms of Service</a>&nbsp;and

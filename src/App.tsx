@@ -20,16 +20,16 @@ function App() {
         <Header />
         <div className={styles.mainContent}>
           <Switch>
-            <Route path="/login">
+            <Route path="/login" exact>
               <Login />
             </Route>
-            <Route path="/registration">
+            <Route path="/registration" exact>
               <Registration />
             </Route>
-            <Route path="/about">
+            <Route path="/about" exact>
               <About />
             </Route>
-            <Route path="/users">
+            <Route path="/users" exact>
               <Users />
             </Route>
           </Switch>

@@ -1,5 +1,5 @@
-import {createSlice} from "@reduxjs/toolkit";
-
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {User} from "interfaces/user";
 
 const initialState = {
 	id: 1,
@@ -11,10 +11,10 @@ export const user = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		login: (state, action) => {
-			state.name = action.payload
-			state.isAuthorized = true
-		}
+		loginSuccess: (state, action: PayloadAction<Partial<User>>) => ({
+			...state,
+			...action.payload
+		})
 	}
 })
 
