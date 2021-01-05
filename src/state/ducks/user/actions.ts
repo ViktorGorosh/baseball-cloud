@@ -1,7 +1,7 @@
 import {createAction} from "@reduxjs/toolkit";
 import {user} from "./reducers";
 import {SIGN_IN, SIGN_UP, GET_PROFILE_DATA} from "./types";
-import {LoginPayload, RegisterPayload, User} from "interfaces/user";
+import {LoginPayload, RegisterPayload} from "interfaces/user";
 
 export const { loginSuccess } = user.actions
 

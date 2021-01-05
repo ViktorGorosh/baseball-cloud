@@ -1,6 +1,6 @@
 import {PayloadAction} from "@reduxjs/toolkit";
 import {call, put, takeLeading} from 'redux-saga/effects';
-import {loginSuccess} from 'state/ducks/user'
+import {getProfileData, loginSuccess} from 'state/ducks/user'
 import {authorizedOn} from 'state/ducks/meta'
 import {loginUserService, registerUserService} from "services/authentication";
 import {LoginPayload, RegisterPayload, User} from "interfaces/user";
@@ -10,6 +10,7 @@ function* login(action: PayloadAction<LoginPayload>) {
 	try {
 		const data: User = yield call(loginUserService, action.payload)
 		yield put(loginSuccess(data))
+		yield put(getProfileData(data.id.toString()))
 		yield put(authorizedOn())
 	} catch (e) {
 		console.log(e.message)
