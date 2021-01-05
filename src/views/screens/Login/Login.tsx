@@ -1,19 +1,25 @@
 import React, {useCallback} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Form} from 'react-final-form';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import {AuthInput} from "views/components/AuthInput";
 import {signIn} from "state/ducks/user";
+import {selectAuthorized} from "state/ducks/meta";
 import {LoginPayload} from "interfaces/user";
 import styles from 'assets/styles/Auth.module.scss';
 
 const Login = () => {
 	const dispatch = useDispatch()
+	const isAuthorized = useSelector(selectAuthorized)
 
 	const onSignIn = useCallback((signInInfo: LoginPayload) => {
 		dispatch(signIn(signInInfo))
 	}, [dispatch])
+
+	if (isAuthorized) return (
+		<Redirect to='/about' exact />
+	)
 
 	return (
 		<div className={styles.loginView}>

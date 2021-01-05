@@ -2,7 +2,7 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route, Redirect
 } from "react-router-dom";
 import {Header} from "views/components/Header";
 import {Footer} from "views/components/Footer";
@@ -17,6 +17,9 @@ function App() {
         <Header />
         <div className={styles.mainContent}>
           <Switch>
+            <Route path="/" exact>
+              <Redirect to='login' exact/>
+            </Route>
             <Route path="/login" exact>
               <Login />
             </Route>

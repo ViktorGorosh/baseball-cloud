@@ -8,7 +8,7 @@ const initialState: Meta = {
 };
 
 export const meta = createSlice({
-  name: 'download',
+  name: 'meta',
   initialState,
   reducers: {
     loadingOn: (state) => ({
