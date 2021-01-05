@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,8 +9,6 @@ import {Footer} from "views/components/Footer";
 import {Login} from "views/screens/Login"
 import {Registration} from "views/screens/Registration";
 import styles from './App.module.scss';
-
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 function App() {
   return (

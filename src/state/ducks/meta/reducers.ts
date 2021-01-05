@@ -4,6 +4,7 @@ import {Meta} from 'interfaces/meta';
 const initialState: Meta = {
   isLoading: false,
   error: '',
+  isAuthorized: false,
 };
 
 export const meta = createSlice({
@@ -18,13 +19,21 @@ export const meta = createSlice({
       ...state,
       isLoading: false,
     }),
-    setError: (state, action: PayloadAction<string>) => ({
+    setError: (state, action: PayloadAction<Meta["error"]>) => ({
       ...state,
       error: action.payload,
     }),
     resetError: (state) => ({
       ...state,
       error: initialState.error,
+    }),
+    authorizedOn: (state) => ({
+      ...state,
+      isAuthorized: true,
+    }),
+    authorizedOff: (state) => ({
+      ...state,
+      isAuthorized: false,
     }),
   },
 });
