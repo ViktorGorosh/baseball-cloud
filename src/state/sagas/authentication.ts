@@ -11,7 +11,7 @@ function* login(action: PayloadAction<LoginPayload>) {
 		console.log('Login data: ', data)
 		yield put(loginSuccess(data))
 	} catch (e) {
-		console.log(e)
+		console.log(e.message)
 	}
 }
 
@@ -21,7 +21,7 @@ function* register(action: PayloadAction<RegisterPayload>) {
 		console.log('Register data: ', data)
 		yield put(loginSuccess(data))
 	} catch (e) {
-		console.log(e)
+		console.log(e.message)
 	}
 }
 
