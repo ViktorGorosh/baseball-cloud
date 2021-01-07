@@ -1,3 +1,5 @@
+import {Profile} from "./profile";
+
 export type Url = string | null
 
 export interface Avatar {
@@ -30,6 +32,7 @@ export interface User {
 	u_name: string | null
 	uid: string
 	unsubscribe: boolean
+	profile: Profile
 }
 
 export interface UserExtended extends User {

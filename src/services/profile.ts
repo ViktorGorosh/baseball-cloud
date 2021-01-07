@@ -1,16 +1,45 @@
+import {AxiosResponse} from "axios";
 import {axiosInstance} from "./api";
+import {getCurrentProfileData} from "interfaces/profile";
 
-export async function getProfileData(id: string) {
+const graphql = process.env.REACT_APP_GRAPHQL_API_ENDPOINT!
 
-  const query = `
-    query Profile($id:String!) {
-      profile(id: $id) {
-        first_name
-        last_name
+export async function getCurrentProfile() {
+  const query = `{
+    current_profile() {
+      first_name
+      last_name
+      position
+      position2
+      avatar
+      throws_hand
+      bats_hand
+      biography
+      school_year
+      feet
+      inches
+      weight
+      age
+      school {
+        id
+        name
       }
-    }`
+      teams {
+        id
+        name
+      }
+      facilities {
+        id
+        email
+        u_name
+      }
+    }
+  }`
 
-  const data = await axiosInstance.post(process.env.REACT_APP_GRAPHQL_API_ENDPOINT!, {query, variables: {id}})
-  console.log(data)
+  const res: AxiosResponse<getCurrentProfileData> = await axiosInstance.post(graphql, {query})
+  if (res.data.errors) {
+    throw new Error('Не удалось загрузить данные профиля')
+  } else {
+    return res.data.data!.current_profile
+  }
 }
-

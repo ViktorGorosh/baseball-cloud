@@ -1,4 +1,5 @@
 import {Avatar} from "./user";
+import {GraphqlData} from "./graphql";
 
 export interface Profile {
   id: string,
@@ -9,7 +10,7 @@ export interface Profile {
   avatar: Avatar | null,
   throws_hand: 'r' | 'l' | null,
   bats_hand: 'r' | 'l' | null,
-  biography: string | null
+  biography: string
   school_year: number | null,
   feet: number | null,
   inches: number | null,
@@ -19,3 +20,7 @@ export interface Profile {
   teams: string[],
   facilities: string[]
 }
+
+export type getCurrentProfileData = GraphqlData<{
+  current_profile: Profile
+}>

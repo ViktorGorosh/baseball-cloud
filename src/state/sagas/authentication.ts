@@ -8,7 +8,8 @@ import {SIGN_IN, SIGN_UP} from "state/ducks/user/types";
 
 function* login(action: PayloadAction<LoginPayload>) {
 	try {
-		const data: User = yield call(loginUserService, action.payload)
+		const data = yield call(loginUserService, action.payload)
+		console.log('Data: ', data)
 		yield put(loginSuccess(data))
 		// yield put(getProfileData(data.id.toString()))
 		yield put(authorizedOn())
