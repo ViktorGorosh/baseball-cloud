@@ -1,13 +1,14 @@
 import React, {useCallback, useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Form} from 'react-final-form'
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faCheckSquare, faCheck } from '@fortawesome/free-solid-svg-icons'
 import {AuthInput} from "views/components/AuthInput";
 import {signUp} from "state/ducks/user";
 import {RegisterPayload, Role, RoleNote} from "interfaces/user";
 import styles from 'assets/styles/Auth.module.scss'
+import {selectAuthorized} from "../../../state/ducks/meta";
 
 const notes: RoleNote[] = [
 	{
@@ -27,10 +28,15 @@ const Registration = () => {
 	const [role, setRole] = useState<Role>('player')
 
 	const dispatch = useDispatch()
+	const isAuthorized = useSelector(selectAuthorized)
 
 	const onSignUp = useCallback((signUpInfo: RegisterPayload) => {
 		dispatch(signUp({...signUpInfo, role}))
 	}, [dispatch, role])
+
+	if (isAuthorized) return (
+		<Redirect to='/profile' exact />
+	)
 
 	return (
 		<div className={styles.loginView}>

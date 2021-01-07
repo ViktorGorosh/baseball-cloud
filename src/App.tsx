@@ -26,11 +26,14 @@ function App() {
             <Route path="/registration" exact>
               <Registration />
             </Route>
-            <Route path="/about" exact>
-              <About />
+            <Route path="/profile" exact>
+              <Profile />
             </Route>
-            <Route path="/users" exact>
-              <Users />
+            <Route path="/leaderboard" exact>
+              <Leaderboard />
+            </Route>
+            <Route path="/network" exact>
+              <Network />
             </Route>
           </Switch>
         </div>
@@ -40,12 +43,16 @@ function App() {
   );
 }
 
-function About() {
-  return <h2>About</h2>;
+function Profile() {
+  return <h2>Profile</h2>;
 }
 
-function Users() {
-  return <h2>Users</h2>;
+function Leaderboard() {
+  return <h2>Leaderboard</h2>;
+}
+
+function Network() {
+  return <h2>Network</h2>;
 }
 
 export default App;

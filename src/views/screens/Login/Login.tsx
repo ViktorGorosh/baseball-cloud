@@ -18,7 +18,7 @@ const Login = () => {
 	}, [dispatch])
 
 	if (isAuthorized) return (
-		<Redirect to='/about' exact />
+		<Redirect to='/profile' exact />
 	)
 
 	return (
