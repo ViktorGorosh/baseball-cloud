@@ -10,10 +10,10 @@ function* login(action: PayloadAction<LoginPayload>) {
 	try {
 		const data: User = yield call(loginUserService, action.payload)
 		yield put(loginSuccess(data))
-		yield put(getProfileData(data.id.toString()))
+		// yield put(getProfileData(data.id.toString()))
 		yield put(authorizedOn())
 	} catch (e) {
-		console.log(e.message)
+		console.log(e)
 	}
 }
 
@@ -23,7 +23,7 @@ function* register(action: PayloadAction<RegisterPayload>) {
 		yield put(loginSuccess(data))
 		yield put(authorizedOn())
 	} catch (e) {
-		console.log(e.message)
+		console.log(e)
 	}
 }
 

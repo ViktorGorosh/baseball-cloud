@@ -47,3 +47,11 @@ export interface RegisterPayload {
 	password_confirmation: UserExtended['password'];
 	role: Role
 }
+
+export interface AuthResponse {
+	headers: {
+		'access-token': string
+		client: string
+		uid: string
+	}
+}
