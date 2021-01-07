@@ -8,6 +8,7 @@ import {Header} from "views/components/Header";
 import {Footer} from "views/components/Footer";
 import {Login} from "views/screens/Login"
 import {Registration} from "views/screens/Registration";
+import {Profile} from "./views/screens/Profile";
 import styles from './App.module.scss';
 
 function App() {
@@ -41,10 +42,6 @@ function App() {
       </div>
     </Router>
   );
-}
-
-function Profile() {
-  return <h2>Profile</h2>;
 }
 
 function Leaderboard() {

@@ -1,5 +1,3 @@
-import {Profile} from "./profile";
-
 export type Url = string | null
 
 export interface Avatar {
@@ -20,7 +18,7 @@ export interface User {
 	id: number
 	paid: boolean
 	plan_id: number | null
-	role: string
+	role: Role
 	team_avatar: {
 		url: Url,
 		size_20_20: Avatar
@@ -32,7 +30,6 @@ export interface User {
 	u_name: string | null
 	uid: string
 	unsubscribe: boolean
-	profile: Profile
 }
 
 export interface UserExtended extends User {

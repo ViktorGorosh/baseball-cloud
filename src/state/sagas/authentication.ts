@@ -1,6 +1,6 @@
 import {PayloadAction} from "@reduxjs/toolkit";
 import {call, put, takeLeading} from 'redux-saga/effects';
-import {getProfileData, loginSuccess} from 'state/ducks/user'
+import {loginSuccess} from 'state/ducks/user'
 import {authorizedOn} from 'state/ducks/meta'
 import {loginUserService, registerUserService} from "services/authentication";
 import {LoginPayload, RegisterPayload, User} from "interfaces/user";

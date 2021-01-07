@@ -1,10 +1,10 @@
 import {axiosInstance} from "./api";
-import {getCurrentProfile} from "./profile";
 import {
   AuthResponse,
   LoginPayload,
   RegisterPayload, User,
 } from 'interfaces/user';
+import {AxiosResponse} from "axios";
 
 function updateTokens(res: AuthResponse) {
   axiosInstance.defaults.headers['access-token'] = res.headers['access-token']
@@ -17,19 +17,15 @@ function updateTokens(res: AuthResponse) {
 }
 
 export async function registerUserService(user: RegisterPayload): Promise<User> {
-  const res = await axiosInstance.post(process.env.REACT_APP_REGISTER_API_ENDPOINT!, user);
-  console.log('Register res: ', res)
+  const res: AxiosResponse<{data: User}> = await axiosInstance.post(process.env.REACT_APP_REGISTER_API_ENDPOINT!, user);
 
   updateTokens(res)
-  const profile = await getCurrentProfile()
-  return {...res.data.data, profile};
+  return res.data.data;
 }
 
 export async function loginUserService(user: LoginPayload): Promise<User> {
-  const res = await axiosInstance.post(process.env.REACT_APP_LOGIN_API_ENDPOINT!, user);
-  console.log('Login res: ', res)
+  const res: AxiosResponse<{data: User}> = await axiosInstance.post(process.env.REACT_APP_LOGIN_API_ENDPOINT!, user);
 
   updateTokens(res)
-  const profile = await getCurrentProfile()
-  return {...res.data.data, profile};
+  return res.data.data;
 }

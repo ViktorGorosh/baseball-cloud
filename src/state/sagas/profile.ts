@@ -1,15 +1,19 @@
 import {call, put, takeLeading} from "redux-saga/effects";
-import {PayloadAction} from "@reduxjs/toolkit";
-import {GET_PROFILE_DATA} from "state/ducks/user/types";
+import {getCurrentProfile as getCurrentProfileService} from "services/profile";
+import {updateProfile} from 'state/ducks/profile'
+import {GET_CURRENT_PROFILE} from "state/ducks/profile/types";
+import {Profile} from "interfaces/profile";
 
-function* getProfileData(action: PayloadAction<string>) {
+function* getCurrentProfile() {
   try {
-    // const data = yield call(getProfileDataService, action.payload)
+    const profile: Profile = yield call(getCurrentProfileService)
+    console.log(profile)
+    yield put(updateProfile(profile))
   } catch (e) {
-    console.log(e.message)
+    console.error(e.message)
   }
 }
 
-export function* watchGetProfileData() {
-  yield takeLeading(GET_PROFILE_DATA, getProfileData);
+export function* watchProfile() {
+  yield takeLeading(GET_CURRENT_PROFILE, getCurrentProfile);
 }
