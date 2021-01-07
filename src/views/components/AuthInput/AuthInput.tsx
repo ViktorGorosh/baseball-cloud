@@ -5,19 +5,20 @@ import {AuthInputProps} from "interfaces/props";
 import styles from "./AuthInput.module.scss";
 
 const AuthInput = ({name, type, placeholder, icon}: AuthInputProps) => (
-  <div className={styles.inputContainer}>
-    <Field name={name}>
-      {({input}) => (
+  <Field name={name}>
+    {({input, meta}) => (
+      <div className={styles.inputContainer}>
         <input
           type={type}
           placeholder={placeholder}
           className={styles.input}
           {...input}
         />
-      )}
-    </Field>
-    <FontAwesomeIcon className={styles.icon} icon={icon} />
-  </div>
+        <FontAwesomeIcon className={styles.icon} icon={icon} />
+        {meta.error && meta.touched && <div className={styles.error}>{meta.error}</div>}
+      </div>
+    )}
+  </Field>
 )
 
 export default AuthInput

@@ -30,8 +30,17 @@ const Login = () => {
 				</div>
 				<Form
 					onSubmit={onSignIn}
-				>
-					{({ handleSubmit }) => (
+					validate={values => {
+						const errors: any = {}
+						if (!values.email) {
+							errors.email = 'Required'
+						}
+						if (!values.password) {
+							errors.password = 'Required'
+						}
+						return errors
+					}}
+					render={({ handleSubmit,  }) => (
 						<form onSubmit={handleSubmit}>
 							<AuthInput name={'email'} type={'email'} placeholder={'Email'} icon={faUser} />
 							<AuthInput name={'password'} type={'password'} placeholder={'Password'} icon={faLock} />
@@ -47,7 +56,7 @@ const Login = () => {
 							</div>
 						</form>
 					)}
-				</Form>
+				/>
 			</div>
 		</div>
 	)

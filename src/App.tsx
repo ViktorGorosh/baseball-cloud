@@ -7,7 +7,7 @@ import {
 import {Header} from "views/components/Header";
 import {Footer} from "views/components/Footer";
 import {Login} from "views/screens/Login"
-import {Registration} from "views/screens/Registration";
+// import {Registration} from "views/screens/Registration";
 import {Profile} from "./views/screens/Profile";
 import styles from './App.module.scss';
 
@@ -42,6 +42,10 @@ function App() {
       </div>
     </Router>
   );
+}
+
+function Registration() {
+  return <h2>Registration</h2>
 }
 
 function Leaderboard() {
