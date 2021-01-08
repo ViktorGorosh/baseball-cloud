@@ -4,14 +4,16 @@ import {Form} from 'react-final-form';
 import {Link, Redirect} from "react-router-dom";
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import {AuthInput} from "views/components/AuthInput";
+import {Error} from "views/components/Error";
 import {signIn} from "state/ducks/user";
-import {selectAuthorized} from "state/ducks/meta";
+import {selectAuthorized, selectError} from "state/ducks/meta";
 import {LoginPayload} from "interfaces/user";
 import styles from 'assets/styles/Auth.module.scss';
 
 const Login = () => {
 	const dispatch = useDispatch()
 	const isAuthorized = useSelector(selectAuthorized)
+	const error = useSelector(selectError)
 
 	const onSignIn = useCallback((signInInfo: LoginPayload) => {
 		dispatch(signIn(signInInfo))
@@ -32,18 +34,25 @@ const Login = () => {
 					onSubmit={onSignIn}
 					render={({ handleSubmit }) => (
 						<form onSubmit={handleSubmit}>
+
 							<AuthInput name={'email'} type={'email'} placeholder={'Email'} icon={faUser} />
 							<AuthInput name={'password'} type={'password'} placeholder={'Password'} icon={faLock} />
+
+							{error ? <Error text={error} /> : null }
+
 							<button className={styles.submit} type='submit'>Sign In</button>
+
 							<div className="d-flex justify-content-end mb-4">
 								<a href="#">Forgotten password?</a>
 							</div>
+
 							<div className="d-flex justify-content-center">
 								<div className={styles.footerText}>
 									Don’t have an account?
 								</div>
 								<Link to='/registration' className={styles.changeScreen}>Sign Up</Link>
 							</div>
+
 						</form>
 					)}
 				/>

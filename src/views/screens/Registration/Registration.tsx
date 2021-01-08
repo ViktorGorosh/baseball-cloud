@@ -5,8 +5,9 @@ import {Link, Redirect} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faCheckSquare, faCheck } from '@fortawesome/free-solid-svg-icons'
 import {AuthInput} from "views/components/AuthInput";
+import {Error} from "views/components/Error";
 import {signUp} from "state/ducks/user";
-import {selectAuthorized} from "state/ducks/meta";
+import {selectAuthorized, selectError} from "state/ducks/meta";
 import {RegisterPayload, Role, RoleNote} from "interfaces/user";
 import styles from 'assets/styles/Auth.module.scss'
 
@@ -29,6 +30,7 @@ const Registration = () => {
 
   const dispatch = useDispatch()
   const isAuthorized = useSelector(selectAuthorized)
+  const error = useSelector(selectError)
 
   const onSignUp = useCallback((signUpInfo: RegisterPayload) => {
     dispatch(signUp({...signUpInfo, role}))
@@ -95,9 +97,12 @@ const Registration = () => {
                   {notes.find(note => note.role === role)!.message}
                 </p>
               </div>
+
               <AuthInput name={'email'} type={'email'} placeholder={'Email'} icon={faUser} />
+              {error ? <Error text={error} /> : null }
               <AuthInput name={'password'} type={'password'} placeholder={'Password'} icon={faLock} />
               <AuthInput name={'password_confirmation'} type={'password'} placeholder={'Confirm password'} icon={faCheck} />
+
               <div className={styles.agreement}>
                 By clicking Sign Up, you agree to our&nbsp;
                 <a href="#">Terms of Service</a>&nbsp;and

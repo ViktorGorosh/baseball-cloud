@@ -6,3 +6,7 @@ export interface AuthInputProps {
   placeholder: string
   icon: IconDefinition
 }
+
+export interface ErrorProps {
+  text: string
+}
