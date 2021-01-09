@@ -28,6 +28,16 @@ body {
   min-height: 100%;
 }
 
+aside {
+  grid-area: sidebar;
+  background: #fff;
+  border-right: 1px solid rgba(0,0,0,.1);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  grid-column: 1;
+  width: 200px;
+}
+
 a {
   color: #337ab7;
   text-decoration: none;
@@ -70,4 +80,20 @@ footer {
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
+}
+
+.profileSidebar {
+  opacity: 1;
+  position: relative;
+  flex: 0 0 298px;
+  height: auto;
+  z-index: 1;
+  display: block;
+  transition: all 0.1s;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-left: 1px solid rgba(0,0,0,.1);
+  width: 200px;
+  overflow: auto;
+  padding: 16px;
 }

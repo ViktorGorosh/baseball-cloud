@@ -7,7 +7,6 @@ import {Profile} from "interfaces/profile";
 function* getCurrentProfile() {
   try {
     const profile: Profile = yield call(getCurrentProfileService)
-    console.log(profile)
     yield put(updateProfile(profile))
   } catch (e) {
     console.error(e.message)

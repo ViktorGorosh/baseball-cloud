@@ -10,3 +10,14 @@ export interface AuthInputProps {
 export interface ErrorProps {
   text: string
 }
+
+export interface ProfileInputProps {
+  name: string,
+  value: string,
+  placeholder: string
+}
+
+export interface ProfileSelectProps {
+  name: string,
+  placeholder: string
+}

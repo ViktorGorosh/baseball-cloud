@@ -1,0 +1,11 @@
+.inputContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+.twoInputs {
+  display: flex;
+  justify-content: space-between;
+  :first-child, :last-child {
+    flex-basis: 48%;
+  }
+}
