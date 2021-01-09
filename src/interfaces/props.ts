@@ -17,6 +17,12 @@ export interface ProfileInputProps {
   placeholder: string
 }
 
+export interface ProfileTextareaProps {
+  name: string,
+  value: string,
+  placeholder: string
+}
+
 export interface ProfileSelectProps {
   name: string,
   placeholder: string
