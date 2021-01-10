@@ -40,6 +40,11 @@ export async function loginUserService(user: LoginPayload): Promise<User> {
   return res.data.data;
 }
 
+export async function signOutService() {
+  await axiosInstance.delete(process.env.REACT_APP_SIGN_OUT_ENDPOINT!)
+  deleteTokens()
+}
+
 export async function validateTokenService(): Promise<User> {
   axiosInstance.defaults.headers['access-token'] = localStorage.getItem('access-token')
   axiosInstance.defaults.headers['client'] = localStorage.getItem('client')

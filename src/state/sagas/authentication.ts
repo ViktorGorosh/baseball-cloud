@@ -1,10 +1,10 @@
 import {PayloadAction} from "@reduxjs/toolkit";
 import {call, put, takeLeading} from 'redux-saga/effects';
-import {loginSuccess} from 'state/ducks/user'
-import {authorizedOn, resetError, setError} from 'state/ducks/meta'
-import {loginUserService, registerUserService, validateTokenService} from "services/authentication";
+import {loginSuccess, resetUser} from 'state/ducks/user'
+import {authorizedOff, authorizedOn, resetError, setError} from 'state/ducks/meta'
+import {loginUserService, registerUserService, validateTokenService, signOutService} from "services/authentication";
 import {LoginPayload, RegisterPayload, User} from "interfaces/user";
-import {SIGN_IN, SIGN_UP, VALIDATE_TOKEN} from "state/ducks/user/types";
+import {SIGN_IN, SIGN_OUT, SIGN_UP, VALIDATE_TOKEN} from "state/ducks/user/types";
 
 function* login(action: PayloadAction<LoginPayload>) {
 	try {
@@ -28,6 +28,16 @@ function* register(action: PayloadAction<RegisterPayload>) {
 	}
 }
 
+function* signOut() {
+	try {
+		yield call(signOutService)
+		yield put(authorizedOff())
+		yield put(resetUser())
+	} catch (e) {
+		yield put(setError('Failed to sign out'))
+	}
+}
+
 function* validateToken() {
 	if (localStorage['access-token'] && localStorage.uid && localStorage.client) {
 		try {
@@ -45,4 +55,5 @@ export function* watchUserAuthentication() {
 	yield takeLeading(SIGN_IN, login);
 	yield takeLeading(SIGN_UP, register);
 	yield takeLeading(VALIDATE_TOKEN, validateToken);
+	yield takeLeading(SIGN_OUT, signOut);
 }

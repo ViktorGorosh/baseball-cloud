@@ -12,7 +12,7 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(getCurrentProfile())
-  }, [dispatch])
+  }, [])
 
   const onSaveChanges = (values: any) => {
     console.log(values)

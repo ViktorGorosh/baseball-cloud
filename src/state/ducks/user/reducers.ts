@@ -33,7 +33,8 @@ export const user = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		loginSuccess: (state, action: PayloadAction<User>) => action.payload
+		loginSuccess: (state, action: PayloadAction<User>) => action.payload,
+		resetUser: state => initialState
 	}
 })
 
