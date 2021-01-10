@@ -1,4 +1,5 @@
 import {IconDefinition} from "@fortawesome/free-solid-svg-icons";
+import {Profile} from "./profile";
 
 export interface AuthInputProps {
   name: string,
@@ -12,18 +13,18 @@ export interface ErrorProps {
 }
 
 export interface ProfileInputProps {
-  name: string,
-  value: string,
+  name: keyof Profile,
+  value: any,
   placeholder: string
 }
 
 export interface ProfileTextareaProps {
-  name: string,
-  value: string,
+  name: keyof Profile,
+  value: any,
   placeholder: string
 }
 
 export interface ProfileSelectProps {
-  name: string,
+  name: keyof Profile,
   placeholder: string
 }

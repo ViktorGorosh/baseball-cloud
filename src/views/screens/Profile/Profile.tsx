@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import {Form} from 'react-final-form'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {ProfileInput} from "views/components/ProfileInput";
 import {ProfileSelect} from "views/components/ProfileSelect";
 import {ProfileTextarea} from "views/components/ProfileTextarea";
-import {getCurrentProfile} from "state/ducks/profile";
+import {getCurrentProfile, selectProfile} from "state/ducks/profile";
 import styles from './Profile.module.scss'
 
 const Profile = () => {
@@ -13,6 +13,8 @@ const Profile = () => {
   useEffect(() => {
     dispatch(getCurrentProfile())
   }, [])
+
+  const profile = useSelector(selectProfile)
 
   const onSaveChanges = (values: any) => {
     console.log(values)
@@ -25,8 +27,8 @@ const Profile = () => {
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.inputContainer + ' ' + styles.twoInputs}>
-              <ProfileInput name={'first_name'} value={'Viktor'} placeholder={'First name'}/>
-              <ProfileInput name={'second_name'} value={'Gorosh'} placeholder={'Last name'}/>
+              <ProfileInput name={'first_name'} value={profile.first_name} placeholder={'First name'}/>
+              <ProfileInput name={"last_name"} value={profile.last_name} placeholder={'Last name'}/>
             </div>
             <div className={styles.inputContainer}>
               <ProfileSelect name={'position'} placeholder={'Position in game'}/>
@@ -38,17 +40,17 @@ const Profile = () => {
               <div className={styles.sectionTitle}>Personal Info</div>
             </div>
             <div className={styles.inputContainer}>
-              <ProfileInput name={'age'} value={'22'} placeholder={'Age'}/>
+              <ProfileInput name={'age'} value={profile.age} placeholder={'Age'}/>
             </div>
             <div className={styles.inputContainer + ' ' + styles.twoInputs}>
-              <ProfileInput name={'feet'} value={'5'} placeholder={'Feet'}/>
-              <ProfileInput name={'inches'} value={'5'} placeholder={'Inches'}/>
+              <ProfileInput name={'feet'} value={profile.feet} placeholder={'Feet'}/>
+              <ProfileInput name={'inches'} value={profile.inches} placeholder={'Inches'}/>
             </div>
             <div className={styles.inputContainer}>
-              <ProfileInput name={'weight'} value={'82'} placeholder={'Weight'}/>
+              <ProfileInput name={'weight'} value={profile.weight} placeholder={'Weight'}/>
             </div>
             <div className={styles.inputContainer + ' ' + styles.twoInputs}>
-              <ProfileSelect name={'throw_hand'} placeholder={'Throw hand'}/>
+              <ProfileSelect name={"throws_hand"} placeholder={'Throw hand'}/>
               <ProfileSelect name={'bats_hand'} placeholder={'Bats hand'}/>
             </div>
             <div className={styles.sectionTitleContainer}>
@@ -68,9 +70,9 @@ const Profile = () => {
             </div>
             <div className={styles.inputContainer}>
               <ProfileTextarea
-                name={'teams'}
+                name={"teams"}
                 placeholder={'Describe yourself in a few words...'}
-                value={'Just doing my job'}
+                value={profile.biography}
               />
             </div>
             <div className='d-flex'>
