@@ -51,6 +51,18 @@ p {
   font-size: 1.4rem;
 }
 
+button, input, select, textarea {
+  background-color: transparent;
+  border-style: none;
+  color: inherit;
+  font-size: 1em;
+  margin: 0;
+}
+
+svg {
+  fill: currentColor;
+}
+
 #root {
   height: 100vh;
   background-color: #cbcccd;
@@ -62,6 +74,30 @@ header {
   display: flex;
   align-items: center;
   padding: 8px;
+  nav {
+    display: flex;
+    a {
+      padding: 0 8px;
+      color: #788b99!important;
+      text-decoration: none!important;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.headerContainer {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding: 8px;
+  .nav {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 footer {

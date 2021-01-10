@@ -58,7 +58,7 @@ const Profile = () => {
               <ProfileSelect name={'school'} placeholder={'School'}/>
             </div>
             <div className={styles.inputContainer}>
-              <ProfileSelect name={'school'} placeholder={'School'}/>
+              <ProfileSelect name={'school_year'} placeholder={'School Year'}/>
             </div>
             <div className={styles.inputContainer}>
               <ProfileSelect name={'teams'} placeholder={'Teams'}/>
@@ -75,7 +75,7 @@ const Profile = () => {
             </div>
             <div className='d-flex'>
               <button type='button' className={styles.cancel}>Cancel</button>
-              <button type='submit' className={styles.submit}>Cancel</button>
+              <button type='submit' className={styles.submit}>Save</button>
             </div>
           </form>
         )}
