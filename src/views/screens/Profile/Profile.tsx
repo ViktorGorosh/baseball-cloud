@@ -1,18 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {Form} from 'react-final-form'
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {ProfileInput} from "views/components/ProfileInput";
 import {ProfileSelect} from "views/components/ProfileSelect";
 import {ProfileTextarea} from "views/components/ProfileTextarea";
-import {getCurrentProfile, selectProfile} from "state/ducks/profile";
+import {selectProfile} from "state/ducks/profile";
 import styles from './Profile.module.scss'
 
 const Profile = () => {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getCurrentProfile())
-  }, [])
 
   const profile = useSelector(selectProfile)
 

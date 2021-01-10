@@ -2,6 +2,7 @@ import {PayloadAction} from "@reduxjs/toolkit";
 import {call, put, takeLeading} from 'redux-saga/effects';
 import {loginSuccess, resetUser} from 'state/ducks/user'
 import {authorizedOff, authorizedOn, resetError, setError} from 'state/ducks/meta'
+import {getCurrentProfile} from "state/ducks/profile";
 import {loginUserService, registerUserService, validateTokenService, signOutService} from "services/authentication";
 import {LoginPayload, RegisterPayload, User} from "interfaces/user";
 import {SIGN_IN, SIGN_OUT, SIGN_UP, VALIDATE_TOKEN} from "state/ducks/user/types";
@@ -11,6 +12,7 @@ function* login(action: PayloadAction<LoginPayload>) {
 		const user: User = yield call(loginUserService, action.payload)
 		yield put(resetError())
 		yield put(loginSuccess(user))
+		yield put(getCurrentProfile())
 		yield put(authorizedOn())
 	} catch (e) {
 		yield put(setError('Invalid login credentials. Please try again.'))
@@ -22,6 +24,7 @@ function* register(action: PayloadAction<RegisterPayload>) {
 		const user: User = yield call(registerUserService, action.payload)
 		yield put(resetError())
 		yield put(loginSuccess(user))
+		yield put(getCurrentProfile())
 		yield put(authorizedOn())
 	} catch (e) {
 		yield put(setError('Invalid credentials. Please try again.'))
@@ -44,6 +47,7 @@ function* validateToken() {
 			const user = yield call(validateTokenService)
 			yield put(resetError())
 			yield put(loginSuccess(user))
+			yield put(getCurrentProfile())
 			yield put(authorizedOn())
 		} catch (e) {
 			console.error(e.message)

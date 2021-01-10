@@ -1,4 +1,3 @@
-import {Avatar} from "./user";
 import {GraphqlData} from "./graphql";
 
 export interface Profile {
@@ -7,7 +6,7 @@ export interface Profile {
   last_name: string | null,
   position: string | null,
   position2: string | null,
-  avatar: Avatar | null,
+  avatar: string | null,
   throws_hand: 'r' | 'l' | null,
   bats_hand: 'r' | 'l' | null,
   biography: string
