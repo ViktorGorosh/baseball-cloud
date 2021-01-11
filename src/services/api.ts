@@ -8,3 +8,5 @@ export const axiosInstance = axios.create({
     uid: localStorage.getItem('uid')
   }
 })
+
+export const graphql = process.env.REACT_APP_GRAPHQL_API_ENDPOINT!

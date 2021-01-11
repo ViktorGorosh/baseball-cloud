@@ -1,8 +1,6 @@
 import {AxiosResponse} from "axios";
-import {axiosInstance} from "./api";
+import {axiosInstance, graphql} from "./api";
 import {getCurrentProfileData, Profile} from "interfaces/profile";
-
-const graphql = process.env.REACT_APP_GRAPHQL_API_ENDPOINT!
 
 export async function getCurrentProfile(): Promise<Profile> {
   const query = `{
