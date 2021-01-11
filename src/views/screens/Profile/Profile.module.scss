@@ -1,3 +1,38 @@
+.avatarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 23px;
+}
+.avatarBox {
+  display: block;
+  margin-bottom: 8px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.avatar {
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.choosePhotoContainer {
+  display: flex;
+  width: 100%;
+  flex: 0 0 100%;
+  align-items: center;
+  justify-content: center;
+  label {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+    color: #788b99;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+}
 .inputContainer {
   position: relative;
   margin-bottom: 20px;

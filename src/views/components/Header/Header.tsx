@@ -35,7 +35,8 @@ const Header = () => {
 									<Link to="/profile">
 										<div
 											className={styles.image}
-											style={{backgroundImage: profile.avatar ? `url(${profile.avatar})` : "unset"}} />
+											style={{backgroundImage: profile.avatar ? `url(${profile.avatar})` : "unset"}}
+										/>
 									</Link>
 								</div>
 								<button className={styles.button} onClick={() => setOpen(prevState => !prevState)}>

@@ -21,6 +21,19 @@ const Profile = () => {
         onSubmit={onSaveChanges}
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
+            <div className="userInfo">
+              <div className={styles.avatarContainer}>
+                <div className={styles.avatarBox}>
+                  <div
+                    className={styles.avatar}
+                    style={{backgroundImage: profile.avatar ? `url(${profile.avatar})` : "unset"}}
+                  />
+                </div>
+                <div className={styles.choosePhotoContainer}>
+                  <label>Choose Photo</label>
+                </div>
+              </div>
+            </div>
             <div className={styles.inputContainer + ' ' + styles.twoInputs}>
               <ProfileInput name={'first_name'} value={profile.first_name} placeholder={'First name'}/>
               <ProfileInput name={"last_name"} value={profile.last_name} placeholder={'Last name'}/>
